@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Meme Gallery</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <!-- Your meme images -->
+            <div class="meme"><img src="memes/meme1.jpeg" alt="Funny Meme 1"></div>
+            <div class="meme"><img src="memes/meme2.webp" alt="Funny Meme 2"></div>
+            <div class="meme"><img src="memes/meme3.webp" alt="Funny Meme 3"></div>
+            <div class="meme"><img src="memes/meme4.webp" alt="Funny Meme 4"></div>
+            <div class="meme"><img src="memes/meme5.webp" alt="Funny Meme 5"></div>
+            <div class="meme"><img src="memes/meme6.jpg" alt="Funny Meme 6"></div>
+            <div class="meme"><img src="memes/meme7.jpg" alt="Funny Meme 7"></div>
+            <div class="meme"><img src="memes/meme8.jpg" alt="Funny Meme 8"></div>
+            <div class="meme"><img src="memes/meme9.jpg" alt="Funny Meme 9"></div>
+            <div class="meme"><img src="memes/meme10.jpg" alt="Funny Meme 10"></div>
+            <div class="meme"><img src="memes/meme11.jpg" alt="Funny Meme 11"></div>
+            <div class="meme"><img src="memes/meme12.jpg" alt="Funny Meme 12"></div>
+            <div class="meme"><img src="memes/meme13.jpg" alt="Funny Meme 13"></div>
+            <div class="meme"><img src="memes/meme14.jpg" alt="Funny Meme 14"></div>
+            <div class="meme"><img src="memes/meme15.jpg" alt="Funny Meme 15"></div>
+            <div class="meme"><img src="memes/meme16.jpg" alt="Funny Meme 16"></div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+    </main>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close');
+
+        document.querySelectorAll('.meme img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        // Optional: Close lightbox if clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
